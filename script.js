@@ -21,7 +21,7 @@ function rastgeleKebabSecVeYaz(kebabTurleri) {
 }
 
 // TXT dosyasını çekme (fetch) işlemi
-fetch('kelimeler.txt')
+fetch('/kelimeler.txt')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP Hata! Durum: ${response.status}`);
