@@ -4,63 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Kebab Generator</title>
-    <style>
-        /* CSS Kodları: Sitenin Ortalanması ve Stili */
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column; /* Öğeleri dikey olarak sırala */
-            justify-content: center; /* Dikeyde ortala */
-            align-items: center; /* Yatayda ortala */
-            min-height: 100vh; /* Ekranın tamamını kapla */
-            margin: 0;
-            background-color: #f4f4f4; /* Hafif bir arka plan rengi */
-        }
-
-        .container {
-            text-align: center; /* İçindeki metinleri ortala */
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #kebabImage {
-            width: 300px; /* Görsel genişliği */
-            height: auto; /* Oranını koru */
-            border-radius: 10px;
-            margin-bottom: 20px;
-             /* Kebab temasında bir çerçeve */
-            object-fit: cover; /* Görseli kutuya sığdırma şekli */
-        }
-
-        #kebabName {
-            font-size: 2em;
-            color: #333;
-            margin-top: 0;
-        }
-
-        /* Responsive tasarım için küçük ekranlarda görseli küçült */
-        @media (max-width: 600px) {
-            #kebabImage {
-                width: 100%; /* Mobil cihazlarda tam genişlik */
-                max-width: 300px;
-            }
-            #kebabName {
-                font-size: 1.5em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <img id="kebabImage" src="kebab.jpg" alt="Ana Kebab Görseli">
+    <div class="container">     
+        <div class="kebab-image-placeholder">
+            <img src="kebab.jpg" alt="Kebab Resmi" id="kebabImage">
+        </div>
 
-        <h1 id="kebabName">... Kebabı</h1>
+        <div class="result-area">
+            <p class="kebab-text" id="kebabName">Rastgele Kebab Bekleniyor...</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>

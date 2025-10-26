@@ -1,2 +1,1 @@
-# random-kebab-generator
-Random Kebab Generator
+https://karagozkk.github.io/random-kebab-generator

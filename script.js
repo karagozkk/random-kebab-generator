@@ -1,45 +1,31 @@
-// Rastgele bir kelime seçme ve HTML'e yazma fonksiyonu
-function rastgeleKebabSecVeYaz(kebabTurleri) {
-    // Liste boşsa veya tanımsızsa bir şey yapma
-    if (!kebabTurleri || kebabTurleri.length === 0) {
-        document.getElementById('kebabName').textContent = "Kelimeler Yüklenemedi Kebabı";
-        console.error("Kebab listesi boş veya yüklenemedi.");
-        return;
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Dikkat: Artık kebabListesi, kebab_listesi.js dosyasından global olarak erişilebilir.
+    // Eğer kebabListesi tanımlı değilse (dosya yüklenmemişse) hata verecektir.
 
-    // 1. Rastgele indeks seçimi
-    const randomIndex = Math.floor(Math.random() * kebabTurleri.length);
-    
-    // 2. Seçilen kelime
-    const rastgeleKelime = kebabTurileri[randomIndex];
-    
-    // 3. HTML elementini bulma
     const kebabNameElement = document.getElementById('kebabName');
+    const generateButton = document.getElementById('generateButton');
     
-    // 4. İçeriği güncelleme
-    kebabNameElement.textContent = rastgeleKelime + " Kebabı";
-}
+    // Sayfa yüklendiğinde ilk seçimi yap
+    generateRandomKebab();
 
-// TXT dosyasını çekme (fetch) işlemi
-fetch('/kelimeler.txt')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP Hata! Durum: ${response.status}`);
+    // Buton olayını dinle
+    generateButton.addEventListener('click', generateRandomKebab);
+
+    function generateRandomKebab() {
+        // kebabListesi'nin tanımlı ve dizi olduğundan emin olmak iyi bir pratiktir.
+        if (typeof kebabListesi === 'undefined' || !Array.isArray(kebabListesi) || kebabListesi.length === 0) {
+            kebabNameElement.textContent = "Hata: Kebab listesi bulunamadı!";
+            return;
         }
-        // Yanıtı DÜZ METİN olarak al
-        return response.text();
-    })
-    .then(data => {
-        // Metni satır sonu karakterlerine (\n) göre bölerek bir dizi oluştur
-        // .filter(Boolean) metni bölerken oluşabilecek boş satırları (örn. dosyanın sonundaki boş satır) temizler.
-        const kebabTurleri = data.split('\n').map(s => s.trim()).filter(Boolean);
+
+        // Rastgele İndeks Seçimi
+        const randomIndex = Math.floor(Math.random() * kebabListesi.length);
         
-        // Listeyi rastgele seçim fonksiyonuna gönder
-        rastgeleKebabSecVeYaz(kebabTurleri);
-    })
-    .catch(error => {
-        console.error('Kelimeler yüklenirken bir sorun oluştu:', error);
+        // Listeden Kelimeyi Çek
+        const selectedKebab = kebabListesi[randomIndex];
         
-        // Hata durumunda bir yedek metin gösterme
-        document.getElementById('kebabName').textContent = "Yükleme Hatası Kebabı";
-    });
+        // HTML'i Güncelle
+        kebabNameElement.textContent = `${selectedKebab} Kebabı`;
+    }
+});

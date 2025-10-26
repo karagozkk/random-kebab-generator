@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.container {
+    background-color: #ffffff;
+    border-color: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.kebab-image-placeholder {
+    width: 100%;
+    height: 250px; /* Görselin yüksekliğini sabitleyelim */
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    overflow: hidden; /* Görselin taşmasını engellemek için */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#kebabImage {
+    max-width: 100%;
+    height: auto; /* Görseli orantılı tutar */
+    display: block; /* Placeholder içindeki resmi düzgün hizalar */
+}
+
+.result-area {
+    margin-bottom: 25px;
+}
+
+.kebab-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: #000000; /* Kebab rengine yakın bir renk */
+    margin: 0;
+}
+
+button {
+    background-color: #5cb85c; /* Yeşil bir buton rengi */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
